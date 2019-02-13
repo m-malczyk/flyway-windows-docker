@@ -8,6 +8,7 @@ ADD https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/${FLYWAY_VERS
 
 RUN powershell -Command Expand-Archive "c:\flyway_arch\flyway.zip" -DestinationPath c:/
 
+RUN powershell -Command Remove-Item -LiteralPath "c:\flyway_arch" -Force -Recurse
 
 ENTRYPOINT ["flyway.cmd"]
 CMD ["--help"]
